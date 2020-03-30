@@ -1,0 +1,32 @@
+#!/bin/bash
+
+auth="Authorization: Basic MyBase64BasicTokenHere=="
+executable="5e44ca05bfcb1c32a453436"
+endpoint="https://api.us.cloud.talend.com/tmc/v2.0"
+
+# Execute a job, get the executionId
+resp=$(curl -w '\n%{http_code}\n' -sS -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "${auth}" -d '{ "executable": "'${executable}'" }' "${endpoint}/executions")
+httpcode=$(echo -e "$resp" | tail -n 1)
+executionId=`echo -e "$resp" | head -n -1 | jq -r .executionId`
+
+echo HTTP Status: $httpcode
+echo Execution response: `echo -e "$resp" | head -n -1`
+
+for i in {1..30}; do
+    echo Checking for finish
+    resp=$(curl -w '\n%{http_code}\n' -sS -X GET --header 'Accept: application/json' --header "${auth}" "${endpoint}/executions/${executionId}")
+    httpcode=$(echo -e "$resp" | tail -n 1)
+    status=`echo -e "$resp" | head -n -1 | jq -r .executionStatus`
+    finishTimestamp=`echo -e "$resp" | head -n -1 | jq -r .finishTimestamp`
+
+    echo HTTP Status: $httpcode
+    echo Execution response: `echo -e "$resp" | head -n -1`
+
+    echo Status: $status
+    if [ -n "$finishTimestamp" ] && [ "$finishTimestamp" != "null" ]; then
+        echo Finished at $finishTimestamp
+        break;
+    fi
+sleep 10
+done
+
