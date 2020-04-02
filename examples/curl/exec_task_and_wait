@@ -1,32 +1,138 @@
 #!/bin/bash
 
-auth="Authorization: Basic MyBase64BasicTokenHere=="
-executable="5e44ca05bfcb1c32a453436"
-endpoint="https://api.us.cloud.talend.com/tmc/v2.0"
+# Expects: 
+#   TMC_AUTH="Authorization: Basic MyBase64BasicTokenHere=="
 
-# Execute a job, get the executionId
-resp=$(curl -w '\n%{http_code}\n' -sS -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "${auth}" -d '{ "executable": "'${executable}'" }' "${endpoint}/executions")
-httpcode=$(echo -e "$resp" | tail -n 1)
-executionId=`echo -e "$resp" | head -n -1 | jq -r .executionId`
+TMC_ENDPOINT="${TMC_ENDPOINT:-https://api.us.cloud.talend.com/tmc/v2.0}"
+SLEEP_SECONDS=10
+POLL_ITERATIONS=30
+_DEBUG="off"
 
-echo HTTP Status: $httpcode
-echo Execution response: `echo -e "$resp" | head -n -1`
+# Execute a job, sets globals executionId, httpcode, resp
+call_execute_task() {
+    local executable="$1"
+    local params="$2"
+    local payload=""
 
-for i in {1..30}; do
-    echo Checking for finish
-    resp=$(curl -w '\n%{http_code}\n' -sS -X GET --header 'Accept: application/json' --header "${auth}" "${endpoint}/executions/${executionId}")
-    httpcode=$(echo -e "$resp" | tail -n 1)
-    status=`echo -e "$resp" | head -n -1 | jq -r .executionStatus`
-    finishTimestamp=`echo -e "$resp" | head -n -1 | jq -r .finishTimestamp`
-
-    echo HTTP Status: $httpcode
-    echo Execution response: `echo -e "$resp" | head -n -1`
-
-    echo Status: $status
-    if [ -n "$finishTimestamp" ] && [ "$finishTimestamp" != "null" ]; then
-        echo Finished at $finishTimestamp
-        break;
+    if [ -z "${TMC_AUTH}" ]; then
+        echo "Must set TMC_AUTH environment variable."
+        return 1
     fi
-sleep 10
-done
 
+    if [ -n "$params" ]; then
+        payload='{ "executable": "'${executable}'", "parameters": {'${params}'} }'
+    else    
+        payload='{ "executable": "'${executable}'" }'
+    fi
+    resp=$(curl -w '\n%{http_code}\n' -sS -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "${TMC_AUTH}" -d "${payload}" "${TMC_ENDPOINT}/executions")
+    httpcode=$(echo -e "${resp}" | tail -n 1)
+    executionId=$(echo -e "${resp}" | head -n -1 | jq -r .executionId)
+
+    if [ "${_DEBUG}" == "on" ]; then
+        >&2 echo "HTTP Status: ${httpcode}"
+        >&2 echo "Execution response: $(echo -e "${resp}" | head -n -1)"
+        >&2 echo "Used payload: ${payload}"
+        >&2 echo "Parsed from response: "
+        >&2 echo "  executionId=${executionId}"
+    fi
+}
+
+# Get status of a job, sets globals status, finishTimestamp, httpcode, resp
+call_get_execution_status() {
+
+    if [ -z "${TMC_AUTH}" ]; then
+        echo "Must set TMC_AUTH environment variable."
+        return 1
+    fi
+
+    resp=$(curl -w '\n%{http_code}\n' -sS -X GET --header 'Accept: application/json' --header "${TMC_AUTH}" "${TMC_ENDPOINT}/executions/${executionId}")
+    httpcode=$(echo -e "${resp}" | tail -n 1)
+    status=`echo -e "${resp}" | head -n -1 | jq -r .executionStatus`
+    finishTimestamp=`echo -e "${resp}" | head -n -1 | jq -r .finishTimestamp`
+
+    if [ "${_DEBUG}" == "on" ]; then
+        >&2 echo "HTTP Status: ${httpcode}"
+        >&2 echo "Execution response: $(echo -e "${resp}" | head -n -1)"
+        >&2 echo "Parsed from response: "
+        >&2 echo "  status=${status}"
+        >&2 echo "  finishTimestamp=${finishTimestamp}"
+    fi
+}
+
+# Checks httpcode and if doesn't match expected status, prints an error with response.
+# Expects parameter: exepected_http_code (example: 200)
+# Returns false for no error, true for error
+check_status_error() {
+    if [ "${httpcode}" != "$1" ]; then
+        echo "Error detected: HTTP Status ${httpcode}"
+        echo "Response:"
+        echo "${resp}"
+        echo ""
+        return 1
+    fi
+    return 0
+}
+
+
+# Do execute task and wait workflow
+# Expects $1 = executable id Example: 5e3aca05e4cb1332a84f3231
+#         $2 = json snippet parameter string Example: ' "parameter1": "value", "parameter2": "value" '
+do_exec_task_and_wait() {
+    local executable="$1"
+    local params="$2"
+
+    # Execute task
+    call_execute_task "${executable}" "${params}"
+    check_status_error 201 || exit 1 
+
+    if [ -z "${executionId}" ]; then
+        echo "Error detected: HTTP Status (${httpcode}) but executionId is empty."
+        echo "Response:"
+        echo ${resp}
+        echo ""
+        exit 1
+    fi
+
+    # Poll status for finish
+    echo "Execution task request accepted. Waiting on execution to finish..."
+    for i in $(seq ${POLL_ITERATIONS}); do
+        if [ "${_DEBUG}" == "on" ]; then
+            >&2 echo "Iteration ${i}"
+        fi
+
+        call_get_execution_status
+        check_status_error 200 || exit 1 
+        
+        if [ -n "${finishTimestamp}" ] && [ "${finishTimestamp}" != "null" ]; then
+            break;
+        fi
+        sleep ${SLEEP_SECONDS}
+    done
+
+    if [ -n "${finishTimestamp}" ] && [ "${finishTimestamp}" != "null" ]; then
+        echo "Finished at $(date -d @$((${finishTimestamp}/1000))) (${finishTimestamp}) with status (${status})"
+    else
+        echo "Poll timeout:"
+        echo "  Last known status: (${status})"
+        exit 1
+    fi
+
+    exit 0
+}
+
+# If not sourced, execute.
+if [ "${BASH_SOURCE[0]}" == "${0}" ]; then
+    if [ -z "$1" ]; then
+        echo "Must provide the executable id."
+        echo "USAGE $0 5e34ca03bccb1a31a8433e6" \'' "parameter1": "value", "parameter2": "value" '\'
+        exit 1
+    fi
+
+    if [ -z "${TMC_AUTH}" ]; then
+        echo "Must set TMC_AUTH environment variable."
+        echo 'USAGE TMC_AUTH="Authorization: Basic MyBase64BasicTokenHere"' "$0 5e34ca03bccb1a31a8433e6" \'' "parameter1": "value", "parameter2": "value" '\'
+        exit 1
+    fi
+
+    do_exec_task_and_wait "$1" "$2"
+fi
