@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ./exec_task_and_wait
+
+TMC_AUTH="Authorization: Basic MyBase64BasicTokenHere=="
+
+# Example orchestration.
+# Executing: (job1 then if successful job2) in parallel run job3.
+#            when above job streams are complete, execute job4
+
+( do_exec_task_and_wait 5e442405efcbac42aa443221 && do_exec_task_and_wait 5e44c9052fc41c22483f3133 ) > ./stream1.log &
+do_exec_task_and_wait 5e344a02b1c42c42384f2203 > ./stream2.log &
+
+wait
+
+do_exec_task_and_wait 5e443a02b2c41492929e9a94 > ./stream3.log
