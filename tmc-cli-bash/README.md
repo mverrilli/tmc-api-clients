@@ -98,20 +98,20 @@ Class | Method | HTTP request | Description
 *ArtifactsApi* | [**getArtifactOfVersion**](docs/ArtifactsApi.md#getartifactofversion) | **GET** /artifacts/{id}/versions/{version} | Get Artifact of a specified version
 *ConfigurationApi* | [**getConnection**](docs/ConfigurationApi.md#getconnection) | **GET** /connections/{id} | Get Connection by id
 *ConfigurationApi* | [**getResource**](docs/ConfigurationApi.md#getresource) | **GET** /resources/{id} | Get Resource by id
-*ExecutionsApi* | [**execute**](docs/ExecutionsApi.md#execute) | **POST** /executions | Execute Task
-*ExecutionsApi* | [**getExecutionStatus**](docs/ExecutionsApi.md#getexecutionstatus) | **GET** /executions/{id} | Get Task execution status
+*ExecutionsApi* | [**executeTask**](docs/ExecutionsApi.md#executetask) | **POST** /executions | Execute Task
+*ExecutionsApi* | [**getExecutionTaskStatus**](docs/ExecutionsApi.md#getexecutiontaskstatus) | **GET** /executions/{id} | Get Task execution status
 *ExecutionsApi* | [**stopExecution**](docs/ExecutionsApi.md#stopexecution) | **DELETE** /executions/{id} | Terminate Task execution
 *PlansExecutablesApi* | [**configurePlanExecution**](docs/PlansExecutablesApi.md#configureplanexecution) | **PUT** /executables/plans/{id}/run-config | Configure Plan execution
 *PlansExecutablesApi* | [**createPlan**](docs/PlansExecutablesApi.md#createplan) | **POST** /executables/plans | Create Plan
 *PlansExecutablesApi* | [**getAvailablePlans**](docs/PlansExecutablesApi.md#getavailableplans) | **GET** /executables/plans | Get available Plans
-*PlansExecutablesApi* | [**getExecutableDetails**](docs/PlansExecutablesApi.md#getexecutabledetails) | **GET** /executables/plans/{id} | Get Plan details
+*PlansExecutablesApi* | [**getExecutablePlanDetails**](docs/PlansExecutablesApi.md#getexecutableplandetails) | **GET** /executables/plans/{id} | Get Plan details
 *PlansExecutablesApi* | [**getPlanConfiguration**](docs/PlansExecutablesApi.md#getplanconfiguration) | **GET** /executables/plans/{id}/run-config | Get Plan configuration
-*PlansExecutionsApi* | [**execute**](docs/PlansExecutionsApi.md#execute) | **POST** /executions/plans | Execute Plan
-*PlansExecutionsApi* | [**getExecutionStatus**](docs/PlansExecutionsApi.md#getexecutionstatus) | **GET** /executions/plans/{id} | Get Plan execution status
-*PromotionsExecutablesApi* | [**getExecutableDetails**](docs/PromotionsExecutablesApi.md#getexecutabledetails) | **GET** /executables/promotions/{id} | Get Promotion details
+*PlansExecutionsApi* | [**executePlan**](docs/PlansExecutionsApi.md#executeplan) | **POST** /executions/plans | Execute Plan
+*PlansExecutionsApi* | [**getExecutionPlanStatus**](docs/PlansExecutionsApi.md#getexecutionplanstatus) | **GET** /executions/plans/{id} | Get Plan execution status
+*PromotionsExecutablesApi* | [**getExecutablePromotionDetails**](docs/PromotionsExecutablesApi.md#getexecutablepromotiondetails) | **GET** /executables/promotions/{id} | Get Promotion details
 *PromotionsExecutablesApi* | [**getExecutablesAvailable**](docs/PromotionsExecutablesApi.md#getexecutablesavailable) | **GET** /executables/promotions | Get available Promotions
-*PromotionsExecutionsApi* | [**execute**](docs/PromotionsExecutionsApi.md#execute) | **POST** /executions/promotions | Execute Promotion
-*PromotionsExecutionsApi* | [**getExecutionStatus**](docs/PromotionsExecutionsApi.md#getexecutionstatus) | **GET** /executions/promotions/{id} | Get Promotion execution status
+*PromotionsExecutionsApi* | [**executePromotion**](docs/PromotionsExecutionsApi.md#executepromotion) | **POST** /executions/promotions | Execute Promotion
+*PromotionsExecutionsApi* | [**getExecutionPromotionStatus**](docs/PromotionsExecutionsApi.md#getexecutionpromotionstatus) | **GET** /executions/promotions/{id} | Get Promotion execution status
 *RuntimeClustersApi* | [**addRemoteEngineToCluster**](docs/RuntimeClustersApi.md#addremoteenginetocluster) | **PUT** /runtimes/remote-engine-clusters/{clusterId}/engines/{engineId} | Add Remote Engine to Remote Engine Cluster
 *RuntimeClustersApi* | [**createRemoteEngineCluster**](docs/RuntimeClustersApi.md#createremoteenginecluster) | **POST** /runtimes/remote-engine-clusters | Create Remote Engine Cluster
 *RuntimeClustersApi* | [**deleteRemoteEngineCluster**](docs/RuntimeClustersApi.md#deleteremoteenginecluster) | **DELETE** /runtimes/remote-engine-clusters/{clusterId} | Delete Remote Engine Cluster by id

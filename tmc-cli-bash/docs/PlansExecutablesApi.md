@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**configurePlanExecution**](PlansExecutablesApi.md#configurePlanExecution) | **PUT** /executables/plans/{id}/run-config | Configure Plan execution
 [**createPlan**](PlansExecutablesApi.md#createPlan) | **POST** /executables/plans | Create Plan
 [**getAvailablePlans**](PlansExecutablesApi.md#getAvailablePlans) | **GET** /executables/plans | Get available Plans
-[**getExecutableDetails**](PlansExecutablesApi.md#getExecutableDetails) | **GET** /executables/plans/{id} | Get Plan details
+[**getExecutablePlanDetails**](PlansExecutablesApi.md#getExecutablePlanDetails) | **GET** /executables/plans/{id} | Get Plan details
 [**getPlanConfiguration**](PlansExecutablesApi.md#getPlanConfiguration) | **GET** /executables/plans/{id}/run-config | Get Plan configuration
 
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getExecutableDetails**
+## **getExecutablePlanDetails**
 
 Get Plan details
 
@@ -120,7 +120,7 @@ Get Plan details
 
 ### Example
 ```bash
-tmc-cli getExecutableDetails id=value
+tmc-cli getExecutablePlanDetails id=value
 ```
 
 ### Parameters

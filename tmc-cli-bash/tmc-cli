@@ -100,8 +100,8 @@ operation_parameters_minimum_occurrences["getArtifactOfVersion:::id"]=1
 operation_parameters_minimum_occurrences["getArtifactOfVersion:::version"]=1
 operation_parameters_minimum_occurrences["getConnection:::id"]=1
 operation_parameters_minimum_occurrences["getResource:::id"]=1
-operation_parameters_minimum_occurrences["execute:::body"]=1
-operation_parameters_minimum_occurrences["getExecutionStatus:::id"]=1
+operation_parameters_minimum_occurrences["executeTask:::body"]=1
+operation_parameters_minimum_occurrences["getExecutionTaskStatus:::id"]=1
 operation_parameters_minimum_occurrences["stopExecution:::id"]=1
 operation_parameters_minimum_occurrences["configurePlanExecution:::id"]=1
 operation_parameters_minimum_occurrences["configurePlanExecution:::body"]=0
@@ -111,14 +111,14 @@ operation_parameters_minimum_occurrences["getAvailablePlans:::environmentId"]=0
 operation_parameters_minimum_occurrences["getAvailablePlans:::workspaceId"]=0
 operation_parameters_minimum_occurrences["getAvailablePlans:::limit"]=0
 operation_parameters_minimum_occurrences["getAvailablePlans:::offset"]=0
-operation_parameters_minimum_occurrences["getExecutableDetails:::id"]=1
+operation_parameters_minimum_occurrences["getExecutablePlanDetails:::id"]=1
 operation_parameters_minimum_occurrences["getPlanConfiguration:::id"]=1
-operation_parameters_minimum_occurrences["execute:::body"]=1
-operation_parameters_minimum_occurrences["getExecutionStatus:::id"]=1
-operation_parameters_minimum_occurrences["getExecutableDetails:::id"]=1
+operation_parameters_minimum_occurrences["executePlan:::body"]=1
+operation_parameters_minimum_occurrences["getExecutionPlanStatus:::id"]=1
+operation_parameters_minimum_occurrences["getExecutablePromotionDetails:::id"]=1
 operation_parameters_minimum_occurrences["getExecutablesAvailable:::_s"]=0
-operation_parameters_minimum_occurrences["execute:::body"]=1
-operation_parameters_minimum_occurrences["getExecutionStatus:::id"]=1
+operation_parameters_minimum_occurrences["executePromotion:::body"]=1
+operation_parameters_minimum_occurrences["getExecutionPromotionStatus:::id"]=1
 operation_parameters_minimum_occurrences["addRemoteEngineToCluster:::clusterId"]=1
 operation_parameters_minimum_occurrences["addRemoteEngineToCluster:::engineId"]=1
 operation_parameters_minimum_occurrences["createRemoteEngineCluster:::body"]=1
@@ -156,8 +156,8 @@ operation_parameters_maximum_occurrences["getArtifactOfVersion:::id"]=0
 operation_parameters_maximum_occurrences["getArtifactOfVersion:::version"]=0
 operation_parameters_maximum_occurrences["getConnection:::id"]=0
 operation_parameters_maximum_occurrences["getResource:::id"]=0
-operation_parameters_maximum_occurrences["execute:::body"]=0
-operation_parameters_maximum_occurrences["getExecutionStatus:::id"]=0
+operation_parameters_maximum_occurrences["executeTask:::body"]=0
+operation_parameters_maximum_occurrences["getExecutionTaskStatus:::id"]=0
 operation_parameters_maximum_occurrences["stopExecution:::id"]=0
 operation_parameters_maximum_occurrences["configurePlanExecution:::id"]=0
 operation_parameters_maximum_occurrences["configurePlanExecution:::body"]=0
@@ -167,14 +167,14 @@ operation_parameters_maximum_occurrences["getAvailablePlans:::environmentId"]=0
 operation_parameters_maximum_occurrences["getAvailablePlans:::workspaceId"]=0
 operation_parameters_maximum_occurrences["getAvailablePlans:::limit"]=0
 operation_parameters_maximum_occurrences["getAvailablePlans:::offset"]=0
-operation_parameters_maximum_occurrences["getExecutableDetails:::id"]=0
+operation_parameters_maximum_occurrences["getExecutablePlanDetails:::id"]=0
 operation_parameters_maximum_occurrences["getPlanConfiguration:::id"]=0
-operation_parameters_maximum_occurrences["execute:::body"]=0
-operation_parameters_maximum_occurrences["getExecutionStatus:::id"]=0
-operation_parameters_maximum_occurrences["getExecutableDetails:::id"]=0
+operation_parameters_maximum_occurrences["executePlan:::body"]=0
+operation_parameters_maximum_occurrences["getExecutionPlanStatus:::id"]=0
+operation_parameters_maximum_occurrences["getExecutablePromotionDetails:::id"]=0
 operation_parameters_maximum_occurrences["getExecutablesAvailable:::_s"]=0
-operation_parameters_maximum_occurrences["execute:::body"]=0
-operation_parameters_maximum_occurrences["getExecutionStatus:::id"]=0
+operation_parameters_maximum_occurrences["executePromotion:::body"]=0
+operation_parameters_maximum_occurrences["getExecutionPromotionStatus:::id"]=0
 operation_parameters_maximum_occurrences["addRemoteEngineToCluster:::clusterId"]=0
 operation_parameters_maximum_occurrences["addRemoteEngineToCluster:::engineId"]=0
 operation_parameters_maximum_occurrences["createRemoteEngineCluster:::body"]=0
@@ -209,8 +209,8 @@ operation_parameters_collection_type["getArtifactOfVersion:::id"]=""
 operation_parameters_collection_type["getArtifactOfVersion:::version"]=""
 operation_parameters_collection_type["getConnection:::id"]=""
 operation_parameters_collection_type["getResource:::id"]=""
-operation_parameters_collection_type["execute:::body"]=""
-operation_parameters_collection_type["getExecutionStatus:::id"]=""
+operation_parameters_collection_type["executeTask:::body"]=""
+operation_parameters_collection_type["getExecutionTaskStatus:::id"]=""
 operation_parameters_collection_type["stopExecution:::id"]=""
 operation_parameters_collection_type["configurePlanExecution:::id"]=""
 operation_parameters_collection_type["configurePlanExecution:::body"]=""
@@ -220,14 +220,14 @@ operation_parameters_collection_type["getAvailablePlans:::environmentId"]=""
 operation_parameters_collection_type["getAvailablePlans:::workspaceId"]=""
 operation_parameters_collection_type["getAvailablePlans:::limit"]=""
 operation_parameters_collection_type["getAvailablePlans:::offset"]=""
-operation_parameters_collection_type["getExecutableDetails:::id"]=""
+operation_parameters_collection_type["getExecutablePlanDetails:::id"]=""
 operation_parameters_collection_type["getPlanConfiguration:::id"]=""
-operation_parameters_collection_type["execute:::body"]=""
-operation_parameters_collection_type["getExecutionStatus:::id"]=""
-operation_parameters_collection_type["getExecutableDetails:::id"]=""
+operation_parameters_collection_type["executePlan:::body"]=""
+operation_parameters_collection_type["getExecutionPlanStatus:::id"]=""
+operation_parameters_collection_type["getExecutablePromotionDetails:::id"]=""
 operation_parameters_collection_type["getExecutablesAvailable:::_s"]=""
-operation_parameters_collection_type["execute:::body"]=""
-operation_parameters_collection_type["getExecutionStatus:::id"]=""
+operation_parameters_collection_type["executePromotion:::body"]=""
+operation_parameters_collection_type["getExecutionPromotionStatus:::id"]=""
 operation_parameters_collection_type["addRemoteEngineToCluster:::clusterId"]=""
 operation_parameters_collection_type["addRemoteEngineToCluster:::engineId"]=""
 operation_parameters_collection_type["createRemoteEngineCluster:::body"]=""
@@ -649,8 +649,8 @@ echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[executions]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}execute${OFF};Execute Task (AUTH) (AUTH)
-  ${CYAN}getExecutionStatus${OFF};Get Task execution status (AUTH) (AUTH)
+  ${CYAN}executeTask${OFF};Execute Task (AUTH) (AUTH)
+  ${CYAN}getExecutionTaskStatus${OFF};Get Task execution status (AUTH) (AUTH)
   ${CYAN}stopExecution${OFF};Terminate Task execution (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
@@ -660,29 +660,29 @@ read -r -d '' ops <<EOF
   ${CYAN}configurePlanExecution${OFF};Configure Plan execution (AUTH) (AUTH)
   ${CYAN}createPlan${OFF};Create Plan (AUTH) (AUTH)
   ${CYAN}getAvailablePlans${OFF};Get available Plans (AUTH) (AUTH)
-  ${CYAN}getExecutableDetails${OFF};Get Plan details (AUTH) (AUTH)
+  ${CYAN}getExecutablePlanDetails${OFF};Get Plan details (AUTH) (AUTH)
   ${CYAN}getPlanConfiguration${OFF};Get Plan configuration (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[plansExecutions]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}execute${OFF};Execute Plan (AUTH) (AUTH)
-  ${CYAN}getExecutionStatus${OFF};Get Plan execution status (AUTH) (AUTH)
+  ${CYAN}executePlan${OFF};Execute Plan (AUTH) (AUTH)
+  ${CYAN}getExecutionPlanStatus${OFF};Get Plan execution status (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[promotionsExecutables]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}getExecutableDetails${OFF};Get Promotion details (AUTH)
+  ${CYAN}getExecutablePromotionDetails${OFF};Get Promotion details (AUTH)
   ${CYAN}getExecutablesAvailable${OFF};Get available Promotions (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[promotionsExecutions]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}execute${OFF};Execute Promotion (AUTH) (AUTH)
-  ${CYAN}getExecutionStatus${OFF};Get Promotion execution status (AUTH) (AUTH)
+  ${CYAN}executePromotion${OFF};Execute Promotion (AUTH) (AUTH)
+  ${CYAN}getExecutionPromotionStatus${OFF};Get Promotion execution status (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -888,12 +888,12 @@ print_getResource_help() {
 }
 ##############################################################################
 #
-# Print help for execute operation
+# Print help for executeTask operation
 #
 ##############################################################################
-print_execute_help() {
+print_executeTask_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}execute - Execute Task${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}executeTask - Execute Task${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Execute Task" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -919,12 +919,12 @@ print_execute_help() {
 }
 ##############################################################################
 #
-# Print help for getExecutionStatus operation
+# Print help for getExecutionTaskStatus operation
 #
 ##############################################################################
-print_getExecutionStatus_help() {
+print_getExecutionTaskStatus_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getExecutionStatus - Get Task execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getExecutionTaskStatus - Get Task execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get Task execution status" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1073,12 +1073,12 @@ print_getAvailablePlans_help() {
 }
 ##############################################################################
 #
-# Print help for getExecutableDetails operation
+# Print help for getExecutablePlanDetails operation
 #
 ##############################################################################
-print_getExecutableDetails_help() {
+print_getExecutablePlanDetails_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getExecutableDetails - Get Plan details${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getExecutablePlanDetails - Get Plan details${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get Plan details" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1127,12 +1127,12 @@ print_getPlanConfiguration_help() {
 }
 ##############################################################################
 #
-# Print help for execute operation
+# Print help for executePlan operation
 #
 ##############################################################################
-print_execute_help() {
+print_executePlan_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}execute - Execute Plan${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}executePlan - Execute Plan${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Execute Plan" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1158,12 +1158,12 @@ print_execute_help() {
 }
 ##############################################################################
 #
-# Print help for getExecutionStatus operation
+# Print help for getExecutionPlanStatus operation
 #
 ##############################################################################
-print_getExecutionStatus_help() {
+print_getExecutionPlanStatus_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getExecutionStatus - Get Plan execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getExecutionPlanStatus - Get Plan execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get Plan execution status" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1188,12 +1188,12 @@ print_getExecutionStatus_help() {
 }
 ##############################################################################
 #
-# Print help for getExecutableDetails operation
+# Print help for getExecutablePromotionDetails operation
 #
 ##############################################################################
-print_getExecutableDetails_help() {
+print_getExecutablePromotionDetails_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getExecutableDetails - Get Promotion details${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getExecutablePromotionDetails - Get Promotion details${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get Promotion details" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1245,12 +1245,12 @@ print_getExecutablesAvailable_help() {
 }
 ##############################################################################
 #
-# Print help for execute operation
+# Print help for executePromotion operation
 #
 ##############################################################################
-print_execute_help() {
+print_executePromotion_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}execute - Execute Promotion${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}executePromotion - Execute Promotion${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Execute Promotion" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1276,12 +1276,12 @@ print_execute_help() {
 }
 ##############################################################################
 #
-# Print help for getExecutionStatus operation
+# Print help for getExecutionPromotionStatus operation
 #
 ##############################################################################
-print_getExecutionStatus_help() {
+print_getExecutionPromotionStatus_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getExecutionStatus - Get Promotion execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getExecutionPromotionStatus - Get Promotion execution status${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get Promotion execution status" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1925,10 +1925,10 @@ call_getResource() {
 
 ##############################################################################
 #
-# Call execute operation
+# Call executeTask operation
 #
 ##############################################################################
-call_execute() {
+call_executeTask() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -2003,10 +2003,10 @@ call_execute() {
 
 ##############################################################################
 #
-# Call getExecutionStatus operation
+# Call getExecutionTaskStatus operation
 #
 ##############################################################################
-call_getExecutionStatus() {
+call_getExecutionTaskStatus() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
@@ -2267,10 +2267,10 @@ call_getAvailablePlans() {
 
 ##############################################################################
 #
-# Call getExecutableDetails operation
+# Call getExecutablePlanDetails operation
 #
 ##############################################################################
-call_getExecutableDetails() {
+call_getExecutablePlanDetails() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
@@ -2339,10 +2339,10 @@ call_getPlanConfiguration() {
 
 ##############################################################################
 #
-# Call execute operation
+# Call executePlan operation
 #
 ##############################################################################
-call_execute() {
+call_executePlan() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -2417,10 +2417,10 @@ call_execute() {
 
 ##############################################################################
 #
-# Call getExecutionStatus operation
+# Call getExecutionPlanStatus operation
 #
 ##############################################################################
-call_getExecutionStatus() {
+call_getExecutionPlanStatus() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
@@ -2453,10 +2453,10 @@ call_getExecutionStatus() {
 
 ##############################################################################
 #
-# Call getExecutableDetails operation
+# Call getExecutablePromotionDetails operation
 #
 ##############################################################################
-call_getExecutableDetails() {
+call_getExecutablePromotionDetails() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
@@ -2525,10 +2525,10 @@ call_getExecutablesAvailable() {
 
 ##############################################################################
 #
-# Call execute operation
+# Call executePromotion operation
 #
 ##############################################################################
-call_execute() {
+call_executePromotion() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -2603,10 +2603,10 @@ call_execute() {
 
 ##############################################################################
 #
-# Call getExecutionStatus operation
+# Call getExecutionPromotionStatus operation
 #
 ##############################################################################
-call_getExecutionStatus() {
+call_getExecutionPromotionStatus() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
@@ -3517,11 +3517,11 @@ case $key in
     getResource)
     operation="getResource"
     ;;
-    execute)
-    operation="execute"
+    executeTask)
+    operation="executeTask"
     ;;
-    getExecutionStatus)
-    operation="getExecutionStatus"
+    getExecutionTaskStatus)
+    operation="getExecutionTaskStatus"
     ;;
     stopExecution)
     operation="stopExecution"
@@ -3535,29 +3535,29 @@ case $key in
     getAvailablePlans)
     operation="getAvailablePlans"
     ;;
-    getExecutableDetails)
-    operation="getExecutableDetails"
+    getExecutablePlanDetails)
+    operation="getExecutablePlanDetails"
     ;;
     getPlanConfiguration)
     operation="getPlanConfiguration"
     ;;
-    execute)
-    operation="execute"
+    executePlan)
+    operation="executePlan"
     ;;
-    getExecutionStatus)
-    operation="getExecutionStatus"
+    getExecutionPlanStatus)
+    operation="getExecutionPlanStatus"
     ;;
-    getExecutableDetails)
-    operation="getExecutableDetails"
+    getExecutablePromotionDetails)
+    operation="getExecutablePromotionDetails"
     ;;
     getExecutablesAvailable)
     operation="getExecutablesAvailable"
     ;;
-    execute)
-    operation="execute"
+    executePromotion)
+    operation="executePromotion"
     ;;
-    getExecutionStatus)
-    operation="getExecutionStatus"
+    getExecutionPromotionStatus)
+    operation="getExecutionPromotionStatus"
     ;;
     addRemoteEngineToCluster)
     operation="addRemoteEngineToCluster"
@@ -3706,11 +3706,11 @@ case $operation in
     getResource)
     call_getResource
     ;;
-    execute)
-    call_execute
+    executeTask)
+    call_executeTask
     ;;
-    getExecutionStatus)
-    call_getExecutionStatus
+    getExecutionTaskStatus)
+    call_getExecutionTaskStatus
     ;;
     stopExecution)
     call_stopExecution
@@ -3724,29 +3724,29 @@ case $operation in
     getAvailablePlans)
     call_getAvailablePlans
     ;;
-    getExecutableDetails)
-    call_getExecutableDetails
+    getExecutablePlanDetails)
+    call_getExecutablePlanDetails
     ;;
     getPlanConfiguration)
     call_getPlanConfiguration
     ;;
-    execute)
-    call_execute
+    executePlan)
+    call_executePlan
     ;;
-    getExecutionStatus)
-    call_getExecutionStatus
+    getExecutionPlanStatus)
+    call_getExecutionPlanStatus
     ;;
-    getExecutableDetails)
-    call_getExecutableDetails
+    getExecutablePromotionDetails)
+    call_getExecutablePromotionDetails
     ;;
     getExecutablesAvailable)
     call_getExecutablesAvailable
     ;;
-    execute)
-    call_execute
+    executePromotion)
+    call_executePromotion
     ;;
-    getExecutionStatus)
-    call_getExecutionStatus
+    getExecutionPromotionStatus)
+    call_getExecutionPromotionStatus
     ;;
     addRemoteEngineToCluster)
     call_addRemoteEngineToCluster

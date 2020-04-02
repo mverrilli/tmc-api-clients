@@ -4,11 +4,11 @@ All URIs are relative to */tmc/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getExecutableDetails**](PromotionsExecutablesApi.md#getExecutableDetails) | **GET** /executables/promotions/{id} | Get Promotion details
+[**getExecutablePromotionDetails**](PromotionsExecutablesApi.md#getExecutablePromotionDetails) | **GET** /executables/promotions/{id} | Get Promotion details
 [**getExecutablesAvailable**](PromotionsExecutablesApi.md#getExecutablesAvailable) | **GET** /executables/promotions | Get available Promotions
 
 
-## **getExecutableDetails**
+## **getExecutablePromotionDetails**
 
 Get Promotion details
 
@@ -16,7 +16,7 @@ Get Promotion details
 
 ### Example
 ```bash
-tmc-cli getExecutableDetails id=value
+tmc-cli getExecutablePromotionDetails id=value
 ```
 
 ### Parameters

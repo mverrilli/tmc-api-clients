@@ -4,12 +4,12 @@ All URIs are relative to */tmc/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**execute**](ExecutionsApi.md#execute) | **POST** /executions | Execute Task
-[**getExecutionStatus**](ExecutionsApi.md#getExecutionStatus) | **GET** /executions/{id} | Get Task execution status
+[**executeTask**](ExecutionsApi.md#executeTask) | **POST** /executions | Execute Task
+[**getExecutionTaskStatus**](ExecutionsApi.md#getExecutionTaskStatus) | **GET** /executions/{id} | Get Task execution status
 [**stopExecution**](ExecutionsApi.md#stopExecution) | **DELETE** /executions/{id} | Terminate Task execution
 
 
-## **execute**
+## **executeTask**
 
 Execute Task
 
@@ -17,7 +17,7 @@ Execute Task
 
 ### Example
 ```bash
-tmc-cli execute
+tmc-cli executeTask
 ```
 
 ### Parameters
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getExecutionStatus**
+## **getExecutionTaskStatus**
 
 Get Task execution status
 
@@ -49,7 +49,7 @@ Get Task execution status
 
 ### Example
 ```bash
-tmc-cli getExecutionStatus id=value
+tmc-cli getExecutionTaskStatus id=value
 ```
 
 ### Parameters

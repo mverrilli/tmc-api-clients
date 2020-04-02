@@ -298,16 +298,16 @@ case $state in
     _values "Operations" \
             "getArtifact[Get Artifact by id]" \
             "getArtifactOfVersion[Get Artifact of a specified version]"             "getConnection[Get Connection by id]" \
-            "getResource[Get Resource by id]"             "execute[Execute Task]" \
-            "getExecutionStatus[Get Task execution status]" \
+            "getResource[Get Resource by id]"             "executeTask[Execute Task]" \
+            "getExecutionTaskStatus[Get Task execution status]" \
             "stopExecution[Terminate Task execution]"             "configurePlanExecution[Configure Plan execution]" \
             "createPlan[Create Plan]" \
             "getAvailablePlans[Get available Plans]" \
-            "getExecutableDetails[Get Plan details]" \
-            "getPlanConfiguration[Get Plan configuration]"             "execute[Execute Plan]" \
-            "getExecutionStatus[Get Plan execution status]"             "getExecutableDetails[Get Promotion details]" \
-            "getExecutablesAvailable[Get available Promotions]"             "execute[Execute Promotion]" \
-            "getExecutionStatus[Get Promotion execution status]"             "addRemoteEngineToCluster[Add Remote Engine to Remote Engine Cluster]" \
+            "getExecutablePlanDetails[Get Plan details]" \
+            "getPlanConfiguration[Get Plan configuration]"             "executePlan[Execute Plan]" \
+            "getExecutionPlanStatus[Get Plan execution status]"             "getExecutablePromotionDetails[Get Promotion details]" \
+            "getExecutablesAvailable[Get available Promotions]"             "executePromotion[Execute Promotion]" \
+            "getExecutionPromotionStatus[Get Promotion execution status]"             "addRemoteEngineToCluster[Add Remote Engine to Remote Engine Cluster]" \
             "createRemoteEngineCluster[Create Remote Engine Cluster]" \
             "deleteRemoteEngineCluster[Delete Remote Engine Cluster by id]" \
             "getEngineClustersAvailable[Get all (available) Remote Engine Clusters]" \
@@ -356,13 +356,13 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      execute)
+      executeTask)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getExecutionStatus)
+      getExecutionTaskStatus)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] execution ID"
@@ -400,7 +400,7 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getExecutableDetails)
+      getExecutablePlanDetails)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] executable ID"
@@ -414,20 +414,20 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      execute)
+      executePlan)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getExecutionStatus)
+      getExecutionPlanStatus)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] execution ID"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getExecutableDetails)
+      getExecutablePromotionDetails)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] executable ID"
@@ -441,13 +441,13 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      execute)
+      executePromotion)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getExecutionStatus)
+      getExecutionPromotionStatus)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] execution ID"

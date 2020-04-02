@@ -4,11 +4,11 @@ All URIs are relative to */tmc/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**execute**](PromotionsExecutionsApi.md#execute) | **POST** /executions/promotions | Execute Promotion
-[**getExecutionStatus**](PromotionsExecutionsApi.md#getExecutionStatus) | **GET** /executions/promotions/{id} | Get Promotion execution status
+[**executePromotion**](PromotionsExecutionsApi.md#executePromotion) | **POST** /executions/promotions | Execute Promotion
+[**getExecutionPromotionStatus**](PromotionsExecutionsApi.md#getExecutionPromotionStatus) | **GET** /executions/promotions/{id} | Get Promotion execution status
 
 
-## **execute**
+## **executePromotion**
 
 Execute Promotion
 
@@ -16,7 +16,7 @@ Execute Promotion
 
 ### Example
 ```bash
-tmc-cli execute
+tmc-cli executePromotion
 ```
 
 ### Parameters
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getExecutionStatus**
+## **getExecutionPromotionStatus**
 
 Get Promotion execution status
 
@@ -48,7 +48,7 @@ Get Promotion execution status
 
 ### Example
 ```bash
-tmc-cli getExecutionStatus id=value
+tmc-cli getExecutionPromotionStatus id=value
 ```
 
 ### Parameters

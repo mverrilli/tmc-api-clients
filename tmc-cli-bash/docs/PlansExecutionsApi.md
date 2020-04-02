@@ -4,11 +4,11 @@ All URIs are relative to */tmc/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**execute**](PlansExecutionsApi.md#execute) | **POST** /executions/plans | Execute Plan
-[**getExecutionStatus**](PlansExecutionsApi.md#getExecutionStatus) | **GET** /executions/plans/{id} | Get Plan execution status
+[**executePlan**](PlansExecutionsApi.md#executePlan) | **POST** /executions/plans | Execute Plan
+[**getExecutionPlanStatus**](PlansExecutionsApi.md#getExecutionPlanStatus) | **GET** /executions/plans/{id} | Get Plan execution status
 
 
-## **execute**
+## **executePlan**
 
 Execute Plan
 
@@ -16,7 +16,7 @@ Execute Plan
 
 ### Example
 ```bash
-tmc-cli execute
+tmc-cli executePlan
 ```
 
 ### Parameters
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getExecutionStatus**
+## **getExecutionPlanStatus**
 
 Get Plan execution status
 
@@ -48,7 +48,7 @@ Get Plan execution status
 
 ### Example
 ```bash
-tmc-cli getExecutionStatus id=value
+tmc-cli getExecutionPlanStatus id=value
 ```
 
 ### Parameters

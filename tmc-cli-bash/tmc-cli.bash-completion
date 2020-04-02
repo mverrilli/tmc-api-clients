@@ -72,20 +72,20 @@ _tmc-cli()
     operations["getArtifactOfVersion"]=1
     operations["getConnection"]=1
     operations["getResource"]=1
-    operations["execute"]=1
-    operations["getExecutionStatus"]=1
+    operations["executeTask"]=1
+    operations["getExecutionTaskStatus"]=1
     operations["stopExecution"]=1
     operations["configurePlanExecution"]=1
     operations["createPlan"]=1
     operations["getAvailablePlans"]=1
-    operations["getExecutableDetails"]=1
+    operations["getExecutablePlanDetails"]=1
     operations["getPlanConfiguration"]=1
-    operations["execute"]=1
-    operations["getExecutionStatus"]=1
-    operations["getExecutableDetails"]=1
+    operations["executePlan"]=1
+    operations["getExecutionPlanStatus"]=1
+    operations["getExecutablePromotionDetails"]=1
     operations["getExecutablesAvailable"]=1
-    operations["execute"]=1
-    operations["getExecutionStatus"]=1
+    operations["executePromotion"]=1
+    operations["getExecutionPromotionStatus"]=1
     operations["addRemoteEngineToCluster"]=1
     operations["createRemoteEngineCluster"]=1
     operations["deleteRemoteEngineCluster"]=1
@@ -111,20 +111,20 @@ _tmc-cli()
     operation_parameters["getArtifactOfVersion"]="id= version= "
     operation_parameters["getConnection"]="id= "
     operation_parameters["getResource"]="id= "
-    operation_parameters["execute"]=""
-    operation_parameters["getExecutionStatus"]="id= "
+    operation_parameters["executeTask"]=""
+    operation_parameters["getExecutionTaskStatus"]="id= "
     operation_parameters["stopExecution"]="id= "
     operation_parameters["configurePlanExecution"]="id= "
     operation_parameters["createPlan"]=""
     operation_parameters["getAvailablePlans"]="name= environmentId= workspaceId= limit= offset= "
-    operation_parameters["getExecutableDetails"]="id= "
+    operation_parameters["getExecutablePlanDetails"]="id= "
     operation_parameters["getPlanConfiguration"]="id= "
-    operation_parameters["execute"]=""
-    operation_parameters["getExecutionStatus"]="id= "
-    operation_parameters["getExecutableDetails"]="id= "
+    operation_parameters["executePlan"]=""
+    operation_parameters["getExecutionPlanStatus"]="id= "
+    operation_parameters["getExecutablePromotionDetails"]="id= "
     operation_parameters["getExecutablesAvailable"]="_s= "
-    operation_parameters["execute"]=""
-    operation_parameters["getExecutionStatus"]="id= "
+    operation_parameters["executePromotion"]=""
+    operation_parameters["getExecutionPromotionStatus"]="id= "
     operation_parameters["addRemoteEngineToCluster"]="clusterId= engineId= "
     operation_parameters["createRemoteEngineCluster"]=""
     operation_parameters["deleteRemoteEngineCluster"]="clusterId= "
