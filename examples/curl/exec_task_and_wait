@@ -2,13 +2,14 @@
 
 # Expects: 
 #   TMC_AUTH="Authorization: Basic MyBase64BasicTokenHere=="
+#   TMC_AUTH="Authorization: Bearer MyBase64BearerTokenHere=="
 
 TMC_ENDPOINT="${TMC_ENDPOINT:-https://api.us.cloud.talend.com/tmc/v2.0}"
 SLEEP_SECONDS=10
 POLL_ITERATIONS=30
 _DEBUG="off"
 
-# Execute a job, sets globals executionId, httpcode, resp
+# Execute a job, sets globals executionId, status, resp
 call_execute_task() {
     local executable="$1"
     local params="$2"
@@ -24,20 +25,20 @@ call_execute_task() {
     else    
         payload='{ "executable": "'${executable}'" }'
     fi
-    resp=$(curl -w '\n%{http_code}\n' -sS -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "${TMC_AUTH}" -d "${payload}" "${TMC_ENDPOINT}/executions")
-    httpcode=$(echo -e "${resp}" | tail -n 1)
-    executionId=$(echo -e "${resp}" | head -n -1 | jq -r .executionId)
+    resp=$(curl -sS -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "${TMC_AUTH}" -d "${payload}" "${TMC_ENDPOINT}/executions")
+    status=$(echo -e "${resp}" | jq -r .status)
+    executionId=$(echo -e "${resp}" | jq -r .executionId)
 
     if [ "${_DEBUG}" == "on" ]; then
-        >&2 echo "HTTP Status: ${httpcode}"
         >&2 echo "Execution response: $(echo -e "${resp}" | head -n -1)"
         >&2 echo "Used payload: ${payload}"
         >&2 echo "Parsed from response: "
+        >&2 echo "  status=${status}"
         >&2 echo "  executionId=${executionId}"
     fi
 }
 
-# Get status of a job, sets globals status, finishTimestamp, httpcode, resp
+# Get status of a job, sets globals status, finishTimestamp, executionStatus, status, resp
 call_get_execution_status() {
 
     if [ -z "${TMC_AUTH}" ]; then
@@ -45,26 +46,25 @@ call_get_execution_status() {
         return 1
     fi
 
-    resp=$(curl -w '\n%{http_code}\n' -sS -X GET --header 'Accept: application/json' --header "${TMC_AUTH}" "${TMC_ENDPOINT}/executions/${executionId}")
-    httpcode=$(echo -e "${resp}" | tail -n 1)
-    status=`echo -e "${resp}" | head -n -1 | jq -r .executionStatus`
-    finishTimestamp=`echo -e "${resp}" | head -n -1 | jq -r .finishTimestamp`
+    resp=$(curl -sS -X GET --header 'Accept: application/json' --header "${TMC_AUTH}" "${TMC_ENDPOINT}/executions/${executionId}")
+    status=$(echo -e "${resp}" | jq -r .status)
+    executionStatus=$(echo -e "${resp}" | jq -r .executionStatus)
+    finishTimestamp=$(echo -e "${resp}" | jq -r .finishTimestamp)
 
     if [ "${_DEBUG}" == "on" ]; then
-        >&2 echo "HTTP Status: ${httpcode}"
         >&2 echo "Execution response: $(echo -e "${resp}" | head -n -1)"
         >&2 echo "Parsed from response: "
         >&2 echo "  status=${status}"
+        >&2 echo "  executionStatus=${executionStatus}"
         >&2 echo "  finishTimestamp=${finishTimestamp}"
     fi
 }
 
-# Checks httpcode and if doesn't match expected status, prints an error with response.
-# Expects parameter: exepected_http_code (example: 200)
+# Checks status and if doesn't match expected status (null), prints an error with response.
 # Returns false for no error, true for error
 check_status_error() {
-    if [ "${httpcode}" != "$1" ]; then
-        echo "Error detected: HTTP Status ${httpcode}"
+    if [ "${status}" != "null" ]; then
+        echo "Error detected: HTTP Status ${status}"
         echo "Response:"
         echo "${resp}"
         echo ""
@@ -83,10 +83,10 @@ do_exec_task_and_wait() {
 
     # Execute task
     call_execute_task "${executable}" "${params}"
-    check_status_error 201 || exit 1 
+    check_status_error || exit 1 
 
     if [ -z "${executionId}" ]; then
-        echo "Error detected: HTTP Status (${httpcode}) but executionId is empty."
+        echo "Error detected: executionId is empty."
         echo "Response:"
         echo ${resp}
         echo ""
@@ -101,7 +101,7 @@ do_exec_task_and_wait() {
         fi
 
         call_get_execution_status
-        check_status_error 200 || exit 1 
+        check_status_error || exit 1 
         
         if [ -n "${finishTimestamp}" ] && [ "${finishTimestamp}" != "null" ]; then
             break;
@@ -110,10 +110,10 @@ do_exec_task_and_wait() {
     done
 
     if [ -n "${finishTimestamp}" ] && [ "${finishTimestamp}" != "null" ]; then
-        echo "Finished at $(date -d @$((${finishTimestamp}/1000))) (${finishTimestamp}) with status (${status})"
+        echo "Finished at $(date -d @$((${finishTimestamp}/1000))) (${finishTimestamp}) with execution status (${executionStatus})"
     else
         echo "Poll timeout:"
-        echo "  Last known status: (${status})"
+        echo "  Last known execution status: (${executionStatus})"
         exit 1
     fi
 
