@@ -88,7 +88,7 @@ do_exec_task_and_wait() {
     if [ -z "${executionId}" ]; then
         echo "Error detected: executionId is empty."
         echo "Response:"
-        echo ${resp}
+        echo "${resp}"
         echo ""
         exit 1
     fi
